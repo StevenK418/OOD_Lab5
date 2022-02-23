@@ -24,5 +24,25 @@ namespace OOD_Lab5_Ex1
         {
             InitializeComponent();
         }
+
+        private void LBXStock_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+
+        private void LBXSuppliers_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+
+        private void LBXCountries_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+
+        private void LBXProducts_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
     }
 }
