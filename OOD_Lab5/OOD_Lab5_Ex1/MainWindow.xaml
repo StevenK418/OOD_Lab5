@@ -23,8 +23,8 @@
         <ListBox Name="LBXSuppliers" SelectionChanged="LBXSuppliers_SelectionChanged" DisplayMemberPath="SupplierName" Grid.Row="1" Grid.Column="1" Margin="10"/>
         <ListBox Name="LBXCountries" SelectionChanged="LBXCountries_SelectionChanged"  Grid.Row="1" Grid.Column="2" Margin="10"/>
         <ListBox Name="LBXProducts" SelectionChanged="LBXProducts_SelectionChanged"  Grid.Row="3" Grid.ColumnSpan="3"  Margin="10"/>
-
-
+        
+        <!--Labels-->
         <Label Content="Stock Level" Grid.Row="0" Grid.Column="0"/>
         <Label Content="Suppliers" Grid.Row="0" Grid.Column="1"/>
         <Label Content="Country" Grid.Row="0" Grid.Column="2"/>
