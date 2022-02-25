@@ -8,7 +8,9 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("model1.context.tt")]
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("model1.tt")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("model2_local.context.tt")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("model2_local.tt")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("northwnd.mdf")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("northwnd_log.ldf")]
 
 

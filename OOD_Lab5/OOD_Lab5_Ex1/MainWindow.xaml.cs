@@ -20,7 +20,7 @@ namespace OOD_Lab5_Ex1
     /// </summary>
     public partial class MainWindow : Window
     {
-        private NORTHWNDEntities db = new NORTHWNDEntities();
+        private NORTHWNDEntities1 db = new NORTHWNDEntities1();
         public enum StockLevel
         {
             Low,
