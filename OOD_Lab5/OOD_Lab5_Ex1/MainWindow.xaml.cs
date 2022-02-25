@@ -100,7 +100,16 @@ namespace OOD_Lab5_Ex1
 
         private void LBXSuppliers_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            //Get the selected supplier via ID
+            int supplierID = Convert.ToInt32(LBXSuppliers.SelectedValue);
 
+            var query = from p in db.Products
+                                    where p.SupplierID == supplierID
+                                    orderby p.ProductName
+                                    select p.ProductName;
+
+            //Assign the query result set as the sourc e for the products listbox
+            LBXProducts.ItemsSource = query.ToList();
         }
 
         private void LBXCountries_SelectionChanged(object sender, SelectionChangedEventArgs e)

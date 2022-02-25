@@ -20,7 +20,7 @@
         </Grid.RowDefinitions>
         <!--Listboxes-->
         <ListBox Name="LBXStock" SelectionChanged="LBXStock_SelectionChanged" Grid.Row="1" Margin="10"/>
-        <ListBox Name="LBXSuppliers" SelectionChanged="LBXSuppliers_SelectionChanged" DisplayMemberPath="supplierName" Grid.Row="1" Grid.Column="1" Margin="10" Background="White"/>
+        <ListBox Name="LBXSuppliers" SelectionChanged="LBXSuppliers_SelectionChanged" DisplayMemberPath="supplierName" SelectedValuePath="supplierID" Grid.Row="1" Grid.Column="1" Margin="10" Background="White"/>
         <ListBox Name="LBXCountries" SelectionChanged="LBXCountries_SelectionChanged"  Grid.Row="1" Grid.Column="2" Margin="10"/>
         <ListBox Name="LBXProducts" SelectionChanged="LBXProducts_SelectionChanged"  Grid.Row="3" Grid.ColumnSpan="3"  Margin="10"/>
         
