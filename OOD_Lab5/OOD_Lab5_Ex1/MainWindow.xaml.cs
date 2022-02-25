@@ -20,7 +20,7 @@ namespace OOD_Lab5_Ex1
     /// </summary>
     public partial class MainWindow : Window
     {
-        static NORTHWNDEntities db = new NORTHWNDEntities();
+        private NORTHWNDEntities db = new NORTHWNDEntities();
         public enum StockLevel
         {
             Low,
@@ -67,7 +67,35 @@ namespace OOD_Lab5_Ex1
 
         private void LBXStock_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            //Query the stock associated with the level
+            var query = 
+                from p in db.Products
+                where p.UnitsInStock < 50
+                orderby p.ProductName
+                select p.ProductName;
 
+            string selected = (string)LBXStock.SelectedItem;
+            switch (selected)
+            {
+                case "Low":
+                    //No action needed, sort covered by above query
+                    break;
+                case "Normal":
+                    query = from p in db.Products
+                            where p.UnitsInStock >= 50 && p.UnitsInStock <= 100
+                            orderby p.ProductName
+                            select p.ProductName;
+                    break;
+                case "Overstocked":
+                    query = from p in db.Products
+                            where p.UnitsInStock > 100
+                            orderby p.ProductName
+                            select p.ProductName;
+                    break;
+            }
+
+            //Assign the resultant query result set as the source for the product listbox
+            LBXProducts.ItemsSource = query.ToList();
         }
 
         private void LBXSuppliers_SelectionChanged(object sender, SelectionChangedEventArgs e)
