@@ -32,7 +32,6 @@ namespace OOD_Lab5_Ex2
                 orderby o.Customer.CompanyName
                 select o.Customer.CompanyName;
 
-
             //Store the result
             var result = query.ToList();
 
@@ -59,7 +58,27 @@ namespace OOD_Lab5_Ex2
 
         private void LBXOrders_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            //Get the selected order ID
+            int orderID = Convert.ToInt32(LBXOrders.SelectedValue);
 
+            if (orderID > 0)
+            {
+
+                //Query the db for the Order Details associated with the selected ID
+                var query = from od in db.SalesOrderDetails
+                    where od.SalesOrderID == orderID
+                    select new
+                    {
+                        ProductName = od.Product.Name,
+                        od.UnitPrice,
+                        od.UnitPriceDiscount,
+                        od.OrderQty,
+                        od.LineTotal
+                    };
+
+                //Set the query's result set as the source for the OrderDetails Datagrid.
+                DGOrderDetails.ItemsSource = query.ToList();
+            }
         }
 
      

@@ -18,7 +18,7 @@
             <RowDefinition Height="3*"/>
         </Grid.RowDefinitions>
         <ListBox Grid.Row="1" Margin="10" Name="LBXCustomers" SelectionChanged="LBXCustomers_SelectionChanged"/>
-        <ListBox Grid.Row="1"  Grid.Column="1" Margin="10" Name="LBXOrders" SelectionChanged="LBXOrders_SelectionChanged"/>
+        <ListBox Grid.Row="1"  Grid.Column="1" Margin="10" Name="LBXOrders" SelectedValuePath="SalesOrderID" SelectionChanged="LBXOrders_SelectionChanged"/>
         <DataGrid Grid.Row="3" Grid.ColumnSpan="2" Margin="10" Name="DGOrderDetails"/>
         <!--Labels-->
         <Label Content="Customers" Grid.Row="0" Grid.Column="0"/>
