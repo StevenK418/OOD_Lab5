@@ -20,7 +20,7 @@ namespace OOD_Lab5_Ex1
     /// </summary>
     public partial class MainWindow : Window
     {
-        private NORTHWNDEntities db = new NORTHWNDEntities();
+        static NORTHWNDEntities db = new NORTHWNDEntities();
         public enum StockLevel
         {
             Low,
@@ -52,7 +52,17 @@ namespace OOD_Lab5_Ex1
             //Set the query's returned set as the data source for the listbox
             LBXSuppliers.ItemsSource = query1.ToList();
 
-           
+            //Query 2 - Query each supplier's associated country
+            var query2 =
+                query1
+                    .OrderBy(S => S.country)
+                    .Select(s => s.country);
+
+            //Store the list of countries
+            var countries = query2.ToList();
+
+            //Set this list of countries as the data source for the countries listbox
+            LBXCountries.ItemsSource = countries.Distinct();
         }
 
         private void LBXStock_SelectionChanged(object sender, SelectionChangedEventArgs e)
