@@ -20,7 +20,7 @@ namespace OOD_Lab5_Ex2
     /// </summary>
     public partial class MainWindow : Window
     {
-        private AdventureLiteEntities db = new AdventureLiteEntities();
+        private AdventureLiteEntities1 db = new AdventureLiteEntities1();
         public MainWindow()
         {
             InitializeComponent();
