@@ -20,9 +20,39 @@ namespace OOD_Lab5_Ex1
     /// </summary>
     public partial class MainWindow : Window
     {
+        private NORTHWNDEntities db = new NORTHWNDEntities();
+        public enum StockLevel
+        {
+            Low,
+            Normal,
+            Overstocked
+        }
+
         public MainWindow()
         {
             InitializeComponent();
+        }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            //Populate stocklevel listbox
+            LBXStock.ItemsSource = Enum.GetNames(typeof(MainWindow.StockLevel));
+
+            //Populate the suppliers listbox via an anonymous type
+            var query1 = 
+                from s in db.Suppliers
+                orderby s.CompanyName
+                select new
+                {
+                    supplierName = s.CompanyName,
+                    supplierID = s.SupplierID,
+                    country = s.Country
+                };
+
+            //Set the query's returned set as the data source for the listbox
+            LBXSuppliers.ItemsSource = query1.ToList();
+
+           
         }
 
         private void LBXStock_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -44,5 +74,9 @@ namespace OOD_Lab5_Ex1
         {
 
         }
+
+      
+
+       
     }
 }
