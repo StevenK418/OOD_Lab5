@@ -42,7 +42,19 @@ namespace OOD_Lab5_Ex2
 
         private void LBXCustomers_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            //Store the selected customer
+            string customer = (string) LBXCustomers.SelectedItem;
 
+            if (customer != null)
+            {
+                //Query the DB for the Ordersfor a given customer
+                var query = from o in db.SalesOrderHeaders
+                                                where o.Customer.CompanyName.Equals(customer)
+                                                select o;
+
+                //Assign the result set as data source for the orders listbox
+                LBXOrders.ItemsSource = query.ToList();
+            }
         }
 
         private void LBXOrders_SelectionChanged(object sender, SelectionChangedEventArgs e)
