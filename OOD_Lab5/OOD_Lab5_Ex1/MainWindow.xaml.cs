@@ -114,16 +114,16 @@ namespace OOD_Lab5_Ex1
 
         private void LBXCountries_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            //Get a reference to the selected country 
+            string country = (string) (LBXCountries.SelectedValue);
 
+            var query = from p in db.Products
+                                    where p.Supplier.Country == country
+                                    orderby p.ProductName
+                                    select p.ProductName;
+
+            //Assign the result set as the data source for the products listbox
+            LBXProducts.ItemsSource = query.ToList();
         }
-
-        private void LBXProducts_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-
-        }
-
-      
-
-       
     }
 }
